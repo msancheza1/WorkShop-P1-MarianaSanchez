@@ -17,19 +17,17 @@ def about(request):
 # MOVIES LIST + SEARCH
 def movies(request):
     query = request.GET.get('q')
-
+    
     if query:
-        results = Movie.objects.filter(title__icontains=query)
+        movies = Movie.objects.filter(title__icontains=query)
+    else:
+        movies = Movie.objects.all()
 
-        # Si solo hay una película, redirigir a su detalle
-        if results.count() == 1:
-            return redirect('movie_detail', id=results.first().id)
+    return render(request, 'movies.html', {
+        'movies': movies,
+        'query': query
+    })
 
-        # Si hay varias, mostrarlas
-        return render(request, 'movies.html', {
-            'movies': results,
-            'query': query
-        })
 
     # Si no hay búsqueda, mostrar todas
     movies = Movie.objects.all()
@@ -80,5 +78,3 @@ def signup(request):
 
     return render(request, 'signup.html', {'form': form})
 
-
-#mari
