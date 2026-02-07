@@ -1,0 +1,262 @@
+/* =====================
+   VARIABLES
+   ===================== */
+:root {
+    --primary: #111827;
+    --secondary: #2563eb;
+    --bg-light: #f4f6f8;
+    --card-bg: #ffffff;
+    --text: #374151;
+    --border: #e5e7eb;
+}
+
+/* =====================
+   GLOBAL
+   ===================== */
+body {
+    background-color: var(--bg-light);
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =====================
+   NAVBAR
+   ===================== */
+.navbar {
+    background-color: white;
+}
+
+/* =====================
+   HERO (HOME + ABOUT)
+   ===================== */
+.hero {
+    background-color: var(--primary);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 2.6rem;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+/* =====================
+   MOVIES
+   ===================== */
+.movies-container {
+    margin: 60px auto;
+}
+
+.movies-container h1 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.movie-card {
+    background-color: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+}
+
+.movie-card:hover {
+    transform: translateY(-6px);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+}
+
+.movie-info {
+    padding: 18px;
+}
+
+.movie-info h3 {
+    color: var(--primary);
+    margin-bottom: 10px;
+}
+
+.movie-info p {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 15px;
+}
+
+.movie-info a {
+    color: var(--secondary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.movie-info a:hover {
+    text-decoration: underline;
+}
+
+.review-card {
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+
+/* =====================
+   ABOUT PAGE
+   ===================== */
+.about-content {
+    padding: 70px 0;
+}
+
+.about-section {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.about-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 16px;
+    color: var(--primary);
+}
+
+.about-section p {
+    line-height: 1.7;
+    color: var(--text);
+}
+
+.about-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+    margin-bottom: 60px;
+}
+
+.feature-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+    text-align: center;
+}
+
+.feature-card h3 {
+    margin: 12px 0 8px;
+    color: var(--primary);
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    color: #6b7280;
+}
+
+.about-author {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+    font-size: 0.9rem;
+    color: #6b7280;
+}
+
+/* =====================
+   FOOTER
+   ===================== */
+.footer {
+    background-color: var(--primary);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+/* =====================
+   RESPONSIVE
+   ===================== */
+@media (max-width: 768px) {
+    .about-features {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   MOVIE DETAIL - REVIEWS
+   ========================= */
+
+.movie-detail {
+    max-width: 1100px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Reviews title */
+.movie-detail h3 {
+    margin-top: 50px;
+    margin-bottom: 20px;
+    color: #111827;
+}
+
+/* Review box */
+.review-box {
+    background-color: #ffffff;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* Header: author + date */
+.review-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.review-author {
+    font-weight: bold;
+    color: #111827;
+}
+
+.review-date {
+    font-size: 0.85rem;
+    color: #6b7280;
+}
+
+/* Review text */
+.review-text {
+    color: #374151;
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+/* Delete button */
+.review-actions a {
+    color: #ef4444;
+    font-size: 0.85rem;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.review-actions a:hover {
+    text-decoration: underline;
+}

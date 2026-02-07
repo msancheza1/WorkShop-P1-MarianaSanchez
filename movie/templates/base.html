@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Movie Reviews{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR ÚNICO -->
+<nav class="navbar navbar-expand-lg navbar-light shadow-sm">
+    <div class="container">
+
+        <a class="navbar-brand fw-bold" href="{% url 'home' %}">
+            🎬 MovieReviews
+        </a>
+
+        <!-- SEARCH GLOBAL -->
+        <form class="d-flex mx-auto" method="GET" action="{% url 'movies' %}">
+            <input class="form-control"
+                   type="search"
+                   name="q"
+                   placeholder="Search movies..."
+                   value="{{ request.GET.q|default:'' }}">
+        </form>
+
+        <div>
+            <a href="{% url 'about' %}" class="me-3">About</a>
+            <a href="{% url 'movies' %}" class="me-3">Movies</a>
+
+            {% if user.is_authenticated %}
+                <span class="me-2">Hi {{ user.username }}</span>
+                <a href="{% url 'logout' %}" class="btn btn-outline-dark btn-sm">Logout</a>
+            {% else %}
+                <a href="{% url 'login' %}" class="btn btn-outline-dark btn-sm">Login</a>
+            {% endif %}
+        </div>
+
+    </div>
+</nav>
+
+<!-- CONTENIDO CAMBIANTE -->
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<footer class="footer">
+    Movie Reviews © 2026 | Django Project
+</footer>
+
+</body>
+</html>

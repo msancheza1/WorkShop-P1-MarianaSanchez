@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %}About | Movie Reviews{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+    <div class="container">
+        <h1>🎬 Movie Reviews</h1>
+        <p>Discover movies. Share reviews. Watch trailers.</p>
+    </div>
+</section>
+
+<section class="about-content">
+    <div class="container">
+
+        <div class="about-section">
+            <h2>About the project</h2>
+            <p>
+                Movie Reviews is a Django-based web application that allows users to discover movies, explore details, watch trailers, and share reviews.
+            </p>
+            <p>
+                The platform includes authentication, movie management, and a review
+                system where each user controls their own content.
+            </p>
+        </div>
+
+        <div class="about-features">
+            <div class="feature-card">🎥<h3>Explore Movies</h3></div>
+            <div class="feature-card">✍️<h3>Write Reviews</h3></div>
+            <div class="feature-card">🔐<h3>User Accounts</h3></div>
+            <div class="feature-card">🗄️<h3>Database</h3></div>
+        </div>
+
+        <div class="about-author">
+            <p>Created by <strong>Mariana Sanchez Araque</strong></p>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

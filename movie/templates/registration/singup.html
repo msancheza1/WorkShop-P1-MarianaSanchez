@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block title %}Sign Up | Movie Reviews{% endblock %}
+
+{% block content %}
+<div class="container" style="max-width: 500px; margin-top: 80px; margin-bottom: 80px;">
+
+    <h2 class="mb-4 text-center">Create Account</h2>
+
+    {% if form.errors %}
+        <div class="alert alert-danger">
+            <strong>Please correct the errors below:</strong>
+            <ul class="mb-0 mt-2">
+                {% for field, errors in form.errors.items %}
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
+    <form method="post">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label class="form-label">Username</label>
+            {{ form.username }}
+            <small class="form-text text-muted d-block mt-1">
+                Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password</label>
+            {{ form.password1 }}
+            <small class="form-text text-muted d-block mt-1">
+                Your password must contain at least 8 characters.
+            </small>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Password confirmation</label>
+            {{ form.password2 }}
+            <small class="form-text text-muted d-block mt-1">
+                Enter the same password as before, for verification.
+            </small>
+        </div>
+
+        <button type="submit" class="btn btn-dark w-100 mt-3">
+            Sign Up
+        </button>
+    </form>
+
+    <p class="text-center mt-3">
+        Already have an account?
+        <a href="{% url 'login' %}">Login</a>
+    </p>
+
+</div>
+
+<style>
+    /* Estilos para los campos del formulario */
+    .container input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 1rem;
+    }
+    
+    .container input:focus {
+        outline: none;
+        border-color: #111827;
+    }
+</style>
+
+{% endblock %}

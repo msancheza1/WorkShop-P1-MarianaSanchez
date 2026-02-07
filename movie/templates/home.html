@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Home | Movie Reviews{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero text-center">
+    <div class="container">
+        <h1>Discover Movies & Share Reviews</h1>
+        <p>Explore movies, read reviews and watch trailers<br>
+            By Mariana Sanchez Araque
+        </p>
+    </div>
+</section>
+
+<!-- RECOMMENDED MOVIES -->
+<section class="container my-5">
+    <h2 class="text-center mb-4">Recommended Movies</h2>
+
+    <div class="row g-4">
+        {% for movie in movies %}
+        <div class="col-md-4">
+            <a href="{% url 'movie_detail' movie.id %}" class="movie-link">
+                <div class="movie-card">
+                    <img src="{{ movie.image.url }}" alt="{{ movie.title }}">
+                    <h5>{{ movie.title }}</h5>
+                </div>
+            </a>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}
